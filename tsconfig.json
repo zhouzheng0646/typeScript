@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    // 打包到这里去,如果使用webpack这个设置好像就没起意义了
+    "outDir": "./distx",
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react"
+  },
+  "include": [
+    // 设置除了node_modules以外的其他文件目录
+    "./src/**/*"
+  ],
+  "compileOnSave": true,
+  // 设置"noImplicitAny": true。
+  // 设置"compileOnSave": true。
+  // 当你写新代码时，设置"noImplicitAny"选项是个不错的选择 — 这可以确保你不会错写任何新的类型。
+  // 设置 "compileOnSave"选项可以确保你在运行web程序前自动编译保存变更后的代码。
+  //"exclude": [
+  //  "node_modules",
+  //  "wwwroot"
+  //],
+  // "files": [
+  //   "src/components/Hello.tsx"
+  // ],
+  // 显式列出启动文件在"files"而不是依据"excludes"。
+}
