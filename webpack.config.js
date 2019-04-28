@@ -9,7 +9,7 @@ module.exports = {
   entry: "./src/main",// 指定启动文件可以不加后缀,如果不指定默认为index
   output: {
       filename: "myTS.js",// webpack 打包后的文件就是他
-      path: __dirname + "/dist"// 指定打包的js输出目录
+      path: __dirname + "/distt"// 指定打包的js输出目录
   },
   devtool: "source-map",
   resolve: {
