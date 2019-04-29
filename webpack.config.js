@@ -6,7 +6,7 @@
     // npm install -g webpack-cli 下载到全局
     // npm install --save-dev webpack-cli 添加到当前项目
 module.exports = {
-  entry: "./src/main",// 指定启动文件可以不加后缀,如果不指定默认为index
+  entry: "./src/main",// 指定入口文件(并非启动项)可以不加后缀,如果不指定默认为index
   output: {
       filename: "myTS.js",// webpack 打包后的文件就是他
       path: __dirname + "/distt"// 指定打包的js输出目录

@@ -1,8 +1,8 @@
 {
   "name": "typeScriptS",
   "version": "1.0.0",
+  "main": "show.html",
   "description": "",
-  "main": "",
   "dependencies": {
     "@types/react": "^16.8.14",
     "@types/react-dom": "^16.8.4",
