@@ -1,4 +1,4 @@
-import model from '../model/model';
+import { model } from '../model/model';
 
 export class student extends model {
     constructor(name: string, age: number, book: string[]) {
