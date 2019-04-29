@@ -9,7 +9,10 @@ export class model {
     book: string[];
 }
 
-function find<T>(v1: T[], func: <Tv>(a: Tv, b: Tv) => boolean): T[] {
+var Func = <T>(a: T, b: T) => Boolean;
+
+//function sort<T>(v1: T[], func: any = <T>(a: T, b: T) => a < b): T[] {
+function sort<T>(v1: T[], func: <Tv>(a: Tv, b: Tv) => boolean = <T>(a: T, b: T) => a < b): T[] {
     let temp: T;
     for (let i = 0; i < v1.length - 1; i++) {
         for (let j = i + 1; j < v1.length; j++) {
@@ -23,11 +26,27 @@ function find<T>(v1: T[], func: <Tv>(a: Tv, b: Tv) => boolean): T[] {
     return v1;
 }
 
-function sum<T>(a: T, b: T) {
-    return a > b;
+function find<T>(v1: T[], opt: T, func: <T>(a: T, b: T) => boolean) {
+    for (let i = 0; i < v1.length; i++) {
+        if (func(v1[i], opt)) {
+            return i;
+        }
+    }
+    return -1;
 }
 
-export function show<T>(v1: T[]) {
-    let msg = find(v1, sum);
-    return msg.map((m) => { return m + ' ' });
+export function showFind<T>(v1: T[], opt: T) {
+    return find(v1, opt, <T>(a: T, b: T) => a == b);
+}
+
+
+export function sort_Des<T>(v1: T[]) {
+    return sort(v1).map((m) => { return m + ' ' });
+}
+export function sort_Asc<T>(v1: T[]) {
+    return sort(v1, Ascending).map((m) => { return m + ' ' });
+}
+// Î½´Ê
+function Ascending<T>(a: T, b: T) {
+    return a > b;
 }
