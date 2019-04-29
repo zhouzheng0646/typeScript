@@ -30,7 +30,7 @@ export class Ts extends React.Component<msg, any>{
                 <p>{sort_Asc(['m', 'a', 'y', 'z', 'b', 'x'])}</p>
 
                 <hr /><h3>Find_sort</h3>
-                <p>{showFind([3, 2, 1, 5, 12, 3, 55], 12)}</p>
+                <p>12的在数组中下标为:{showFind([3, 2, 1, 5, 12, 3, 55], 12)}</p>
             </div>
         )
     }
