@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { model, sort_Asc, sort_Des, showFind } from '../model/model';
-import showStu from '../interface/interface';
+import showStu from '../model/sutdent';
 
 
 export interface msg { msg: string };
@@ -20,7 +20,7 @@ export class Ts extends React.Component<msg, any>{
                 <hr /><h3>interface</h3>
                 {
                     <div>
-                        <label>{showStu(new model('zhou', 15, ['假如生活抛弃了你', '入我天朝']))}</label>
+                        <label>{showStu(new model('zhou', 15, ['假如生活抛弃了你', '入我天朝'], [new model('zheng', 14, ['假如生活抛弃了你', '反抗到底'])]))}</label>
                     </div>
                 }
 

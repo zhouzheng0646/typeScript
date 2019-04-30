@@ -9,6 +9,5 @@ export class student extends model {
 export default function showStu(stu: model): string {
     let mode: student = stu;
     mode.name = "zhouzheng";
-    mode.age = 15;
-    return `我的名字叫${mode.name},今年${mode.age},我爱看的书有:${mode.book.map((m) => { return m })}`;
+    return `我的名字叫${mode.name},今年${mode.age},我爱看的书有:${mode.book.map((m) => { return m })}--->${mode.find(mode, (a, b) => a.age === b.age)}`;
 }

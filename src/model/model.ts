@@ -1,12 +1,23 @@
 export class model {
-    constructor(name: string, age: number, book: string[]) {
+    constructor(name: string, age: number, book: string[], modelT: model[] = []) {
         this.name = name;
         this.age = age;
         this.book = book;
+        this.modelT = modelT;
     }
     name: string;
     age: number;
     book: string[];
+    modelT: model[];
+
+    find(opt: model, func: (a: model, b: model) => boolean) {
+        for (let i = 0; i < this.modelT.length; i++) {
+            if (func(this.modelT[i], opt)) {
+                return i;
+            }
+        }
+    return -1;
+}
 }
 
 var Func = <T>(a: T, b: T) => Boolean;
