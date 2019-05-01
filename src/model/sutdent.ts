@@ -6,7 +6,7 @@ export class student extends model {
     }
 }
 
-export default function showStu(stu: model): string {
+export default function showStu(stu: student): string {
     let mode: student = stu;
     mode.name = "zhouzheng";
     return `我的名字叫${mode.name},今年${mode.age},我爱看的书有:${mode.book.map((m) => { return m })}--->${mode.find(mode, (a, b) => a.age === b.age)}`;
