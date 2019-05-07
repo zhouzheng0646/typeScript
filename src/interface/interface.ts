@@ -15,3 +15,7 @@ export interface Func3<Ta, Ret> {
     (...a: Ta[]): Ret;
 }
 
+export interface Fun<Ta, Tb, Tc, Ret> {
+    (a: Ta, b: Tb, c: Tc, ...d: [Ta, Tb, Tc]): Ret;
+}
+
