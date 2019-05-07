@@ -1,10 +1,17 @@
-interface LabelledValue {
-    label: string;
+export interface pet {
+    sex: string;
+    leg: number;
 }
 
-function printLabel(labelledObj: LabelledValue) {
-    console.log(labelledObj.label);
+export interface Func<T> {
+    (a: T, b: T, ...c: T[]): boolean;
 }
 
-let myObj = { label: "Size 10 Object" };
-printLabel(myObj);
+export interface Func2<Ta, Tb> {
+    (a: Ta, b: Tb): number;
+}
+
+export interface Func3<Ta, Ret> {
+    (...a: Ta[]): Ret;
+}
+

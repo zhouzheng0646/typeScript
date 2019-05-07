@@ -16,8 +16,8 @@ export class model {
                 return i;
             }
         }
-    return -1;
-}
+        return -1;
+    }
 }
 
 var Func = <T>(a: T, b: T) => Boolean;
