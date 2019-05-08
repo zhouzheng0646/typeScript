@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Ts } from './types/types';
+import { Ts } from './types';
 
 ReactDOM.render(
   <Ts msgs="TypeScript基本运行环境" />, 
