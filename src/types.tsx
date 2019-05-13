@@ -39,8 +39,8 @@ export class Ts extends React.Component<msg, any>{
                         <p>移除一个model: {modelList.Remove()}</p>
 
                         <h2>Listn</h2>
-                        <p>新增一个models: {modelLists.Add(new model('默认', 0, ['默认', '反抗到底']))}</p>
-                        <p>新增一个models: {modelLists.Add(new model('大傻子', 0, ['默认', '反抗到底']))}</p>
+                        <p>新增一个models: {modelLists.Add(new model('默认', 0, ['默认', '反抗到底'])).count}</p>
+                        <p>新增一个models: {modelLists.Add(new model('大傻子', 0, ['默认', '反抗到底'])).count}</p>
                         <p>models0: {modelLists[0].name}</p>
                         <p>models1: {modelLists[1].name}</p>
                     </div>
