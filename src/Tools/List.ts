@@ -5,22 +5,14 @@ export default class List<T>{
         this.nextIdex = 0;
     }
 
-    //成员变量
+    // ***成员变量*** //
     private model: T[];
 
     const: number;
 
     nextIdex: number;
 
-    // 成员函数
-    [Symbol.iterator]() { return this; }
-
-    next(): IteratorResult<T> {
-        return this.const > this.nextIdex ? { value: this.model[this.nextIdex++], done: false } : { value: null, done: true };
-    }
-
-
-
+    // ***成员函数*** //
     Remove() {
         this.model.pop();
         return --this.const;
@@ -30,4 +22,12 @@ export default class List<T>{
         this.model.push(item);
         return ++this.const;
     }
+
+    // start: 迭代器
+    // [Symbol.iterator]() { return this; }
+    [Symbol.iterator]() { return this };
+    next(value?: any): IteratorResult<T> {
+        return this.const > this.nextIdex ? { value: this.model[this.nextIdex++], done: false } : { value: null, done: true };
+    }
+    // end: 迭代器
 }
