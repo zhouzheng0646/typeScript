@@ -14,31 +14,34 @@ export default function showIteration() {
         str += va.value;
         va = alist.next();
     }
+
+
+    let numberArr = function* () {
+        yield 'x',
+        yield 'y',
+        yield 'z'
+    }
     let array = {
         1: 'a', 2: 'b', 3: 'c',
         lenght: 3,
+        [Symbol.iterator]: Array.prototype[Symbol.iterator]
+    }
+    let strArray = {
         [Symbol.iterator]: function* () {
-            yield 1;
-            yield 2;
-            yield 3;
-          },
-        // [Symbol.iterator]() { return {
-        //     next(): IteratorResult<number> {
-        //         console.log(this[0]);
-        //         return {value:this[0],done:true};
-        //     }
-        // } }
+            yield 'a';
+            yield ['bcd'];
+            yield 'e';
+        },
     };
+
     for (const item of array) {
         str += item;
     }
-    return str;
-}
-
-function ad<T>(): Iterator<T> {
-    return {
-        next(): IteratorResult<T> {
-            return;
-        }
+    for (const item of strArray) {
+        str += item;
     }
+    for (const item of numberArr()) {
+        str += item;
+    }
+    return str;
 }
