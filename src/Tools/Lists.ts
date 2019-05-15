@@ -36,14 +36,5 @@ export default class List<T> implements IterableIterator<T>{
             this.nextIdex = 0;                      // 指向头部
             return { value: null, done: true };
         }
-        // [Symbol.iterator](): Iterator<T> {
-        //     let ts = this;
-        //     return {
-        //         next(value: number = ts.nextIdex++): IteratorResult<T> {
-        //             return ts.count > value ? { value: ts.model[value], done: false } : { value: null, done: true };
-        //         }
-        //     }
-        // };
-        //#endregion
     }
 }
