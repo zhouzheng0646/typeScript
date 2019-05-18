@@ -9,6 +9,9 @@ import { printDog } from './model/dog';
 import showDictionary from './model/dictionary';
 import showSymbol from './model/symbol';
 import showIteration from './model/iterator';
+import showQueryable from './model/Queryable';
+import { array } from 'prop-types';
+//import Login from './ReactDome/login';
 
 
 export interface msg { msgs: string };
@@ -19,8 +22,8 @@ enum Color {
 
 export class Ts extends React.Component<msg, any>{
     render() {
-        let modelList: List<model> = new List<model>();
-        let modelLists: Lists<model> = new Lists<model>();
+        let modelLists: List<model> = new List<model>();
+        let modelList: Lists<model> = new Lists<model>();
         return (
             <div>
                 <h1>{this.props.msgs}</h1>
@@ -79,6 +82,10 @@ export class Ts extends React.Component<msg, any>{
 
                 <hr /><h3>showList</h3>
                 <p>iterator: {showIteration()}</p>
+
+                <hr /><h3>showQueryable</h3>
+                <p>iterator: {showQueryable()}</p>
+                
             </div>
         )
     }

@@ -1,18 +1,16 @@
 import List from '../Tools/List'
-import Lists from '../Tools/Lists'
-import { func } from 'prop-types';
 
 export default function showIteration() {
     let str: string = '';
 
-    let alist = new Lists<number>();
+    let alist = new List<number>();
     alist.Add(1).Add(2).Add(3).Add(4).Add(5);
     str += linkStr(alist) + '\t';
 
     let va = alist.next();
     while (!va.done) {
-        str += va.value;
-        va = alist.next();
+       str += va.value;
+       va = alist.next();
     }
 
     let array = {
@@ -41,6 +39,8 @@ export default function showIteration() {
     const str1Arrar = strArray[Symbol.iterator]();
     str += linkStr(str1Arrar) + '\t';
 
+
+
     showMapAndSet();
     return str;
 }
@@ -59,7 +59,6 @@ function showMapAndSet() {
     for (var e of engines) {
       console.log(e);
     }
-
     console.log('---->Map<-----')
     const es6 = new Map();
     es6.set("edition", 6);
@@ -68,7 +67,6 @@ function showMapAndSet() {
     for (const [name, value] of es6) {
         console.log(name + ": " + value);
     }
-
     for (const item of ['a', 1].entries()) {
         console.log(item)
     }
