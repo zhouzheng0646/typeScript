@@ -40,6 +40,29 @@ export default class List<T> implements IterableIterator<T>{
         return this;
     }
 
+    Join(joinQueryable:this){
+        for (let i = 0; i < joinQueryable.count; i++) {
+            this[this.count++] = joinQueryable[i];
+        }
+        return this;
+    }
+
+    Skip(skipIndex: number) {
+        let sikpTemp = new List<T>();
+        if (skipIndex < this.count)
+            for (let i = 0; i < skipIndex; i++)
+                sikpTemp[i] = this[i];
+        return sikpTemp;
+    }
+
+    SkipLast(skipIndex: number) {
+        let sikpTemp = new List<T>();
+        if (skipIndex < this.count)
+            for (let i = 0; i < (this.count - skipIndex); i++)
+                sikpTemp[i] = this[skipIndex + i];
+        return sikpTemp;
+    }
+
     Remove() {
         this[this.count--] = null;
         return this;
@@ -64,4 +87,10 @@ export default class List<T> implements IterableIterator<T>{
             return { value: null, done: true };
         }
     }
+
+    return?(): IteratorResult<T>{
+
+        return { value: null, done: true };
+    }
+
 }
