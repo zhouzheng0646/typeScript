@@ -11,17 +11,12 @@ export default function showQueryable() {
 
     alist.OrderBy((a, b) => a > b);
 
-    let alistSikp = alist.Skip(5);
-    let alistSikps = alist.SkipLast(5);
-    console.log(alistSikp);
-    console.log(alistSikps);
-    for (const item of alistSikp) {
-        console.log('Skip', item);
-    }
-    for (const item of alist) {
-        console.log('order', item);
-    }
+    let alistSikp = alist.Skip(4);
+    let alistSikps = alist.SkipLast(4);
+    
     return (`--->Where: ${alist.Where((a) => a > 5)}<---
     --->Where: ${alist.Where<number>((a, b) => a < b * 2)}<---
+    --->FirstOrDefault:: ${alistSikp.FirstOrDefault()}<---
+    --->LastOrDefault:: ${alistSikps.LastOrDefault()}<---
     `);
 }

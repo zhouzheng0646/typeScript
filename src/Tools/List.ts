@@ -48,21 +48,41 @@ export default class List<T> implements IterableIterator<T>{
     }
 
     Skip(skipIndex: number) {
-        let sikpTemp = new List<T>();
-        if (skipIndex < this.count)
-            for (let i = 0; i < skipIndex; i++)
+        let sikpTemp:List<T> = new List<T>();
+        if (skipIndex < this.count) {
+            let i = 0;
+            for (; i < skipIndex; i++)
                 sikpTemp[i] = this[i];
+            sikpTemp.count = i;
+        }
         return sikpTemp;
     }
 
     SkipLast(skipIndex: number) {
         let sikpTemp = new List<T>();
-        if (skipIndex < this.count)
-            for (let i = 0; i < (this.count - skipIndex); i++)
+        if (skipIndex < this.count) {
+            let i = 0;
+            for (; i < (this.count - skipIndex); i++)
                 sikpTemp[i] = this[skipIndex + i];
+            sikpTemp.count = i;
+        }
         return sikpTemp;
     }
 
+    FirstOrDefault() { 
+        return this.FLst(1);
+    }
+    LastOrDefault() { 
+        return this.FLst(this.count);
+    }
+    private FLst(index: number) {
+        if (this.count){
+            return this[index - 1];
+        }
+        else
+            return null;
+    }
+    //#region 增删改
     Remove() {
         this[this.count--] = null;
         return this;
@@ -72,6 +92,8 @@ export default class List<T> implements IterableIterator<T>{
         this[this.count++] = item;
         return this;
     }
+    //#endregion
+
     //#endregion
 
     // //#region 迭代器
@@ -88,8 +110,7 @@ export default class List<T> implements IterableIterator<T>{
         }
     }
 
-    return?(): IteratorResult<T>{
-
+    return?( ): IteratorResult<T>{
         return { value: null, done: true };
     }
 
