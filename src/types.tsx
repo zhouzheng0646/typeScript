@@ -87,10 +87,10 @@ export class Ts extends React.Component<msg, any>{
                 <p>iterator: {showQueryable()}</p>
 
                 <hr /><h3>showOrderByThen</h3>
-                <p>showQueryable: {showOrderByThen().OrderBy((m, ms) => m.age < ms.age).forEach(m => {
-                    return <div>{`编号:${m.num} 年龄:${m.age} 住址:${m.address} 姓名:${m.name} 性别:${m.sex} 爱看的书:${m.book.map(b =>  b )}`}</div>
+                <p>showQueryable: {showOrderByThen().OrderBy((m, ms) => m.age < ms.age).Where(m => m.age > 10).forEach((m) => {
+                    return <div key={m.num}>{`编号:${m.num} 年龄:${m.age} 住址:${m.address} 姓名:${m.name} 性别:${m.sex} 爱看的书:${m.book.map(b => b)}`}</div>
                 })}</p>
-                
+
             </div>
         )
     }

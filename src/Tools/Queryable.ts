@@ -21,13 +21,14 @@ export default class Queryable<T> {
     //#endregion
 
     //#region 成员函数
-    Where(func: Func1<T, boolean>): T;
-    Where<Ts>(func: Func2<T, Ts, boolean>): T;
+    Where(func: Func1<T, boolean>): Queryable<T>;
+    Where<Ts>(func: Func2<T, Ts, boolean>): Queryable<T>;
     Where(func: any): any {
+        let Temp: Queryable<T> = new Queryable<T>();
         for (let i = 0; i < this.structCount; i++)
             if (func(this[i], i))
-                return this[i];
-        return this[0];
+                Temp.Add(this[i]);
+        return Temp;
     }
 
     OrderBy(func: Func2<T, T, boolean>): this {
@@ -43,14 +44,14 @@ export default class Queryable<T> {
         return this;
     }
 
-    then(func: Func2<T, T, boolean>): this {
-        return this.OrderBy(func);
-    }
+    // then(func: Func2<T, T, boolean>): this {
+    //     return this.OrderBy(func);
+    // }
 
-    forEach(func: Func1<T, any>) {
-        let Temp: Queryable<T>=new Queryable<T>();
+    forEach(func: Func2<T, number, any>) {
+        let Temp: Queryable<T> = new Queryable<T>();
         for (let i = 0; i < this.structCount; i++)
-            Temp.Add(func(this[i]));
+            Temp.Add(func(this[i], i));
         return Temp;
     }
 
