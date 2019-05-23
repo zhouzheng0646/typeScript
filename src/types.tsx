@@ -10,7 +10,7 @@ import showDictionary from './model/dictionary';
 import showSymbol from './model/symbol';
 import showIteration from './model/iterator';
 import showQueryable from './model/Queryable';
-import { array } from 'prop-types';
+import showOrderByThen from './model/OrderByThen';
 //import Login from './ReactDome/login';
 
 
@@ -85,6 +85,11 @@ export class Ts extends React.Component<msg, any>{
 
                 <hr /><h3>showQueryable</h3>
                 <p>iterator: {showQueryable()}</p>
+
+                <hr /><h3>showOrderByThen</h3>
+                <p>showQueryable: {showOrderByThen().OrderBy((m, ms) => m.age < ms.age).forEach(m => {
+                    return <div>{`编号:${m.num} 年龄:${m.age} 住址:${m.address} 姓名:${m.name} 性别:${m.sex} 爱看的书:${m.book.map(b =>  b )}`}</div>
+                })}</p>
                 
             </div>
         )

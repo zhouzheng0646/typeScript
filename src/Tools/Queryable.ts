@@ -43,9 +43,15 @@ export default class Queryable<T> {
         return this;
     }
 
-    forEach(func: Func1<T, void>): void {
+    then(func: Func2<T, T, boolean>): this {
+        return this.OrderBy(func);
+    }
+
+    forEach(func: Func1<T, any>) {
+        let Temp: Queryable<T>=new Queryable<T>();
         for (let i = 0; i < this.structCount; i++)
-            func(this[i]);
+            Temp.Add(func(this[i]));
+        return Temp;
     }
 
     Insert(joinQueryable: this) {
