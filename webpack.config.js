@@ -1,6 +1,7 @@
 // 安装 npm install -g typescript
-// 安装 npm install --save react react-dom @types/react @types/react-dom// 安装 webpack
+// 安装 npm install --save react react-dom @types/react @types/react-dom
 
+// 安装 webpack
 // npm install -g webpack 下载到全局
 // npm install --save-dev webpack 添加到当前项目
 // npm install -g webpack-cli 下载到全局

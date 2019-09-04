@@ -9,6 +9,9 @@ import { printDog } from './model/dog';
 import showDictionary from './model/dictionary';
 import showSymbol from './model/symbol';
 import showIteration from './model/iterator';
+import showQueryable from './model/Queryable';
+import showOrderByThen from './model/OrderByThen';
+//import Login from './ReactDome/login';
 
 
 export interface msg { msgs: string };
@@ -19,8 +22,8 @@ enum Color {
 
 export class Ts extends React.Component<msg, any>{
     render() {
-        let modelList: List<model> = new List<model>();
-        let modelLists: Lists<model> = new Lists<model>();
+        let modelLists: List<model> = new List<model>();
+        let modelList: Lists<model> = new Lists<model>();
         return (
             <div>
                 <h1>{this.props.msgs}</h1>
@@ -39,8 +42,8 @@ export class Ts extends React.Component<msg, any>{
                         <p>移除一个model: {modelList.Remove()}</p>
 
                         <h2>Listn</h2>
-                        <p>新增一个models: {modelLists.Add(new model('默认', 0, ['默认', '反抗到底']))}</p>
-                        <p>新增一个models: {modelLists.Add(new model('大傻子', 0, ['默认', '反抗到底']))}</p>
+                        <p>新增一个models: {modelLists.Add(new model('默认', 0, ['默认', '反抗到底'])).length}</p>
+                        <p>新增一个models: {modelLists.Add(new model('大傻子', 0, ['默认', '反抗到底'])).length}</p>
                         <p>models0: {modelLists[0].name}</p>
                         <p>models1: {modelLists[1].name}</p>
                     </div>
@@ -79,6 +82,15 @@ export class Ts extends React.Component<msg, any>{
 
                 <hr /><h3>showList</h3>
                 <p>iterator: {showIteration()}</p>
+
+                <hr /><h3>showQueryable</h3>
+                <p>iterator: {showQueryable()}</p>
+
+                <hr /><h3>showOrderByThen</h3>
+                <p>showQueryable: {showOrderByThen().OrderBy((m, ms) => m.age < ms.age).Where(m => m.age > 10).forEach((m) => {
+                    return <div key={m.num}>{`编号:${m.num} 年龄:${m.age} 住址:${m.address} 姓名:${m.name} 性别:${m.sex} 爱看的书:${m.book.map(b => b)}`}</div>
+                })}</p>
+
             </div>
         )
     }

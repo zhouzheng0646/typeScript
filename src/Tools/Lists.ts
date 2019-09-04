@@ -1,30 +1,41 @@
-export default class List<T>{
+enum index {
+    a = 'a', b = 'b', c = 'c', d = 'd'
+}
+export default class List<T> implements Iterable<T>{
     constructor() {
-        this.const = 0;
+        this.model = [];
+        this.count = 0;
         this.nextIdex = 0;
     }
 
-    //成员变量
-    const: number;
-    
-    [x: number]: T;
+    //#region  成员变量
+    private model: T[];
+    count: number;
+    nextIdex: number;
+    //#endregion
 
-    private nextIdex: number;
 
-    // 成员函数
-    [Symbol.iterator]() { return this; }
-
-    next(): IteratorResult<T> {
-        return this.const > this.nextIdex ? { value: this[this.nextIdex++], done: false } : { value: null, done: true };
-    }
-
+    //#region 成员函数
     Remove() {
-        this[this.const] = null;
-        return --this.const;
+        this.model.pop();
+        return --this.count;
     }
 
     Add(item: T) {
-        this[this.const] = item;
-        return ++this.const;
+        this.model.push(item);
+        return ++this.count;
     }
+    //#endregion
+
+
+    //#region 迭代器
+    [Symbol.iterator](): Iterator<T> {
+        let ts = this;
+        return {
+            next(value: number = ts.nextIdex++): IteratorResult<T> {
+                return ts.count > value ? { value: ts.model[value], done: false } : { value: null, done: true };
+            }
+        }
+    };
+    //#endregion
 }
