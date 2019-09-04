@@ -1,4 +1,4 @@
-export interface Func1<T1, Ret> {                    //export interface Func1<T> {  这样的写法太陈余
+export interface Func1<T1, Ret> {                    //export interface Func1<T> {  这样的写法太冗余5
     (a: T1): Ret;                                    //    (a: T, b: T, c: T): boolean;   
 }                                                    //}
 
